@@ -53,8 +53,9 @@ int main(int argc, char *argv[])
     {
     vtkSmartPointer<vtkDICOMImageReader> reader =
       vtkSmartPointer<vtkDICOMImageReader>::New();
-	argv[1] = "C:\\SRT\\测试CT&日志\\Plastic_Skull";
-	argv[2] = "650";
+	argv[1] = "C:\\SRT\\测试CT&日志\\CT孤立性肺结节DICOM\\1\\1.2";
+	//argv[2] = "-400";
+	argv[2] = "250";
     reader->SetDirectoryName(argv[1]);
     reader->Update();
     volume->DeepCopy(reader->GetOutput());
