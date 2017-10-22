@@ -27,4 +27,13 @@
 * improve efficiency
 * test on a larger scale of data(~500 slices)
 
+### 2017/10/22
+#### 已完成
+* Input: a folder containing CT images (test folder contains 40 slices)
+* Pipeline: input -> BinaryThresholdImageFilter -> GrayscaleFillholeImageFilter -> BinaryMorphologicalOpeningImageFilter & BinaryErodeImageFilter -> SubtractImageFilter -> Segment from raw dicom file -> MarchingCubes
+* Output: Skin reconstruction result
+#### Todo
+* improve efficiency of the algorithm for lung nodules segmentation
+* test on a larger scale of data
+
 
