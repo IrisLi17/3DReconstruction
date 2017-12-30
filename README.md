@@ -35,5 +35,44 @@
 #### Todo
 * improve efficiency of the algorithm for lung nodules segmentation
 * test on a larger scale of data
+* 最核心的挑战在哪里，创新点在哪里。别人的工作做到什么程度了。
+* 在一张CT上点一个点或者画一个圈重建肿瘤区域。关键：生长规则的确定。
+* 动态CT。每个窗拍摄1~2个呼吸周期，空间拼接。以后只需要采一次CT，根据结构光给出的表面数据就能对应肿瘤位置。
+* 模糊图像情况下
 
+2017/11/09
+#### Todo
+* 另一个病例跑一遍
+* 表皮和肿瘤空洞问题优化
+* 调研：找有没有相关工作 动态扫描
+CT fluorescent(CT透视动态扫描)
+IEEE transaction on medical image
+Medical Image Analysis
 
+elsevier science
+ieee
+springer
+
+2017/12/16
+#### 已完成
+* Cine Scan病例yaoxin的头文件解析
+* Skin segmentation
+#### Todo
+* 建模表面的运动模式 f(t;fixed_x)
+* 运动最显著的区域
+* 此病例没有肿瘤，另一个病例肿瘤分割，建模运动
+#### 问题
+* 数据有误，重新采集中
+
+2017/12/30
+#### 已完成
+* 水平集方法分割结节
+> GeodesicActiveContourLevelSetImageFilter接受两个输入，Input为水平集(LevelSetImage)，FeatureImage为根据图像梯度构造的图像。
+* FeatureImage Pipeline: reader -> CurvatureAnisotropicDiffusionImageFilter -> GradientMagnitudeRecursiveGaussianImageFilter -> SigmoidImageFilter
+* LevelSetImage Pipeline: reader -> fastMarchingImageFilter
+* parameters: 
+> seed(s) position, shortest distance from seed(s) to the nodule edge. 402 347 4.5 387 327 1.4
+> sigmoid filter requires two parameters: $\alpha$ and $\beta$ -0.1 50.0
+#### Todo
+* 根据临近(z)分割出的结果计算后续分割的参数
+* nodule segmentation in a series
