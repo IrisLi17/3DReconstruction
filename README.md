@@ -76,3 +76,12 @@ springer
 #### Todo
 * 根据临近(z)分割出的结果计算后续分割的参数
 * nodule segmentation in a series
+
+2018/1/7
+#### 已完成
+* Level Set方法分割结节。输入initialSliceIndex, seedPosition, initialDistance可以从邻近Slice中分割结节
+> 参数：
+静态1 145 402 347 4.5
+静态2 162 315 356 6.6
+静态shenmingmou 176 374 303 8.4（GG）
+* 问题：只依赖前一次结果更新seed风险太大了。非孤立型结节分不出来。
